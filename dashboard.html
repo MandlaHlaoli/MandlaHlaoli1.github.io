@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Bottle Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://api.backendless.com/sdk/js/latest/backendless.js"></script>
+    <!-- Link to Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+
+</head>
+<body>
+    <!-- Main Navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-main bg-primary">
+        <div class="container">
+           
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="logoutLink">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="container mt-4">
+        <div class="row">
+
+<div class="col-md-6">
+    <h2>Order Water Bottles</h2>
+    <p>Hello, <span id="usernameDisplay"></span>!</p>
+    <p id="successMessage"></p>
+    <form id="orderForm" class="mt-4">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" required>
+                </div>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="quantity500ml" class="form-label">500ml Bottles</label>
+                    <input type="number" class="form-control" id="quantity500ml" name="quantity500ml" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="quantity300ml" class="form-label">300ml Bottles</label>
+                    <input type="number" class="form-control" id="quantity300ml" name="quantity300ml" required>
+                </div>
+            </div>
+        </div>
+    
+
+        <button id="btn_order_bottles" type="submit" class="btn btn-primary">Place Order</button>
+    </form>
+    
+   
+</div>
+            <div class="col-md-6">
+                <div class="text-center mb-4">
+                    <h3>Our Bottles</h3>
+                    <p>Stay refreshed with our premium water bottles.</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <img src="images/water_bottles.jpg" class="card-img-top" alt="500ml Water Bottle">
+                            <div class="card-body">
+                                <h5 class="card-title">500ml Water Bottle</h5>
+                                <p class="card-text">Quench your thirst with our 500ml water bottle.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <img src="images/water_bottles.jpg" class="card-img-top" alt="300ml Water Bottle">
+                            <div class="card-body">
+                                <h5 class="card-title">300ml Water Bottle</h5>
+                                <p class="card-text">A handy 300ml bottle for when you're on the go.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <!-- Include Backendless JavaScript SDK -->
+    <script src="https://api.backendless.com/sdk/js/latest/backendless.min.js"></script>
+
+    <script src="dashboard.js"></script>
+    <script src="initialize_data.js"></script>
+
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-light py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2023 Water Bottle Dashboard</p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <a href="#" class="text-light mx-3"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-light mx-3"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-light mx-3"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-light mx-3"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

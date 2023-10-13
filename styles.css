@@ -1,0 +1,210 @@
+/* Common Styles */
+.container {
+    text-align: center;
+}
+
+/* Navigation Bar Styles */
+.navbar-main {
+    background-color: #007BFF;
+    padding: 5px 0;
+    text-align: center;
+}
+
+.navbar-main .navbar-nav .nav-link {
+    color: #fff;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.navbar li {
+    display: inline;
+    margin: 0 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar a:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Form Styles */
+.form-container {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+input {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.btn {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Header Section */
+.header {
+    background-image: url('images/water_bottles.jpg');
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.header h1 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.header p {
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+/* Bottle Card Styles */
+.bottle-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    transition: transform 0.2s;
+}
+
+.bottle-card:hover {
+    transform: scale(1.05);
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #333;
+    padding: 20px 20px;
+    text-align: center;
+}
+
+.footer p {
+    font-size: 14px;
+    margin: 0;
+}
+
+.footer a {
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #007BFF;
+}
+/* Font Styles */
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* If you want to specify different font weights */
+h1, h2 {
+    font-weight: 700;
+}
+
+/* If you want to specify different font sizes */
+h1 {
+    font-size: 36px;
+}
+
+p {
+    font-size: 16px;
+}
+/* Define a primary color for your website */
+body {
+    background-color: #f2f2f2; /* Light gray background */
+}
+
+.navbar-main {
+    background-color: #007bff; /* Blue navigation bar background */
+    color: #fff; /* White text on the navigation bar */
+}
+
+.nav-link {
+    color: #fff; /* White color for navigation links */
+}
+
+/* Define styles for your buttons */
+.btn-primary {
+    background-color: #007bff; /* Blue button background */
+    color: #fff; /* White text on the button */
+}
+
+/* Define styles for your form elements */
+.form-label {
+    color: #333; /* Dark gray form label text color */
+}
+
+/* Define styles for the footer */
+.footer {
+    background-color: #333; /* Dark background for the footer */
+    color: #fff; /* White text in the footer */
+}
+
+/* Define styles for your card titles and text */
+.card-title {
+    color: #333; /* Dark card title text color */
+}
+
+.card-text {
+    color: #555; /* Slightly lighter card text color */
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333; /* Change this to your desired background color */
+    color: #fff; /* Change this to your desired text color */
+    padding: 20px 0; /* Adjust the padding as needed */
+    z-index: 1; /* Adjust the z-index as needed */
+}
+
+.card:hover {
+    background-color: #f5f5f5; /* Change the background color on hover */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow on hover */
+}
+
+/* Style for the card title on hover */
+.card:hover .card-title {
+    color: #007bff; /* Change the text color of the title on hover */
+    
+}
+
+/* Style for the card text on hover */
+.card:hover .card-text {
+    color: #007bff; /* Change the text color of the text on hover */
+}
