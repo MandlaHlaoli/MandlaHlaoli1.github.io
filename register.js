@@ -60,9 +60,7 @@ document.getElementById('signup').addEventListener('click', function (e) {
 
    
     Backendless.UserService.register(user)
-        .then(function (registeredUser) {
-
-            
+        .then(function (registeredUser) {            
             loginMessage.innerText = registeredUser['email'] +' Registration successful. You can now log in.';
             setTimeout(() => {
                 loginMessage.textContent = '';
