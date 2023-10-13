@@ -54,7 +54,8 @@ document.getElementById('signup').addEventListener('click', function (e) {
     const user = {
         email: email,
         password: signupPassword,
-        fullname: fullname 
+        fullname: fullname,
+       role:'customer',
     };
 
    
