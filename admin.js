@@ -106,3 +106,56 @@ function updateOrderStatus(orderId, newStatus) {
         }
       });
       
+
+
+
+      // Thingspeak keys
+      const channelID = '1761585'; // ThingSpeak channel ID
+      const apiKey = '147VXUAFDWWKEOV2'; // ThingSpeak API Key
+      const apiUrl = `https://api.thingspeak.com/channels/${channelID}/feeds.json?api_key=${apiKey}&results=10`;
+      // Build the URL for retrieving data from ThingSpeak. Adjust the number of results as needed.
+/*
+        
+: parseInt(feed.field1),
+        bottle_count500: parseInt(feed.field2),
+        elevation: feed.field3,
+        flow_rate: parseInt(feed.field4),
+        water_level:parseInt(feed.field5),
+        username: feed.field6,
+        fullname:feed.field7,
+        entry_id: parseInt(feed.entry_id),
+        status: sum += parseInt(feed.field1) ,     
+      }
+      */
+
+// Function to fetch data and populate the table
+async function fetchDataAndPopulateTable() {
+    try {
+        const response = await fetch(apiUrl);
+        if (response.ok) {
+            const data = await response.json();
+            const tableBody = document.querySelector('#pant_table tbody');
+
+            data.feeds.forEach(feed => {
+                console.log("Retrieved");
+                const row = tableBody.insertRow();
+
+                row.insertCell(0).textContent = feed.entry_id;
+                row.insertCell(1).textContent = feed.field1; 
+                row.insertCell(2).textContent = feed.field2; 
+                row.insertCell(3).textContent = feed.field3; 
+                row.insertCell(4).textContent = feed.field4; 
+                row.insertCell(5).textContent = feed.field5; 
+                row.insertCell(6).textContent = feed.field6; 
+                
+            });
+        } else {
+            console.error('Error fetching data from ThingSpeak.');
+        }
+    } catch (error) {
+        console.error('Error: ', error);
+    }
+}
+
+// Call the function to populate the table when the page loads
+fetchDataAndPopulateTable();

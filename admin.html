@@ -16,17 +16,27 @@
 </head>
 <body style="background-image: url('images/water_bottles.jpg'); background-size: cover;">
 
+
+    
     <nav class="navbar navbar-expand-lg navbar-main bg-primary fixed-top">
         <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="#">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" id="dataLink">Data</a>
+                    <li class="nav-item dropdown"> <!-- Added 'dropdown' class -->
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Data
+                        </a>
+                        <div class="dropdown-menu bg-primary" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#plant_data_table">Plant Data</a>
+                            <a class="dropdown-item" href="#customer_orders_table">Customer Data</a>
+                        </div>
                     </li>
-                    
                     <li class="nav-item">
                         <a class="nav-link" href="#" id="logoutLink">Logout</a>
                     </li>
@@ -35,18 +45,20 @@
         </div>
     </nav>
     
-    
 
-    <!-- Admin Dashboard Content -->
-    <div class="container mt-5" >
-        <h1>Admin Dashboard</h1>
-        <p>Welcome, Admin. Here you can manage orders.</p>
-    </div>
+    <!-- Include Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+  
 
     <!-- Inside the <body> tag, add a new section for viewing customer orders -->
-        <section class="container mt-5" >
+        <section class="container mt-5 table-section" id="customer_orders_table">
           
-        <h2>Customer Orders</h2>
+        <h2 class="customer_orders">Customer Orders</h2>
         
         <table class="custom-table">
             <thead>
@@ -65,6 +77,29 @@
             </tbody>
         </table>
     </section>
+
+    <section class="container mt-5 table-section" id="plant_data_table">
+          
+        <h2 class="customer_orders">Plant data</h2>
+        
+        <table class="custom-table" id="pant_table">
+            <thead>
+                <tr>
+                    <th>Bottle Count 330</th>
+                    <th>Bottle Count 500</th>
+                    <th>Elevation</th>
+                    <th>Flow Rate</th>
+                    <th>Water Level</th>
+                    <th>Status</th>
+                    <th>Save Changes</th>
+                </tr>
+            </thead>
+            <tbody >
+                <!-- Add order data here -->
+            </tbody>
+        </table>
+    </section>
+    
 
     <!-- Footer -->
     <footer class="footer bg-dark text-light py-3" style="margin-top: 20px;" >
