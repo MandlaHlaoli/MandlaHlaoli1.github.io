@@ -15,7 +15,7 @@ function populateTable() {
     Backendless.Data.of('Orders').find(query)
         .then(function (orders) {
             // Get the table body to append rows
-            const tbody = document.querySelector('table tbody');
+            const tbody = document.querySelector('#ord_table tbody');
 
             // Iterate through the retrieved data and populate the table
             orders.forEach(function (order) {

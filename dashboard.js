@@ -45,6 +45,7 @@ var random5DigitNumber = Math.floor(Math.random() * (maxNumber - minNumber + 1))
             username: userN,
             fullname: fullNames,
             order_number:random5DigitNumber,
+            status:'Recieved',
             order_date: Date().toLocaleString().split(' ').slice(1, 4).join(' '),
         };
 
