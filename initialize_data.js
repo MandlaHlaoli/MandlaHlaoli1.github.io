@@ -1,4 +1,4 @@
-Initialize(); // Call the Initialize function to start the data retrieval and storage process.
+//Initialize(); // Call the Initialize function to start the data retrieval and storage process.
 
 function Initialize() {
   (async function () {

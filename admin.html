@@ -6,6 +6,7 @@
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="custom.css">
+    <link rel="stylesheet" href="table.css">
     <script src="https://api.backendless.com/sdk/js/latest/backendless.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
@@ -15,23 +16,17 @@
 </head>
 <body style="background-image: url('images/water_bottles.jpg'); background-size: cover;">
 
-    <!-- Admin Navigation bar -->
     <nav class="navbar navbar-expand-lg navbar-main bg-primary fixed-top">
         <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Dashboard</a>
+                        <a class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Orders</a>
+                        <a class="nav-link" href="#" id="dataLink">Data</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Add Products</a>
-                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="#" id="logoutLink">Logout</a>
                     </li>
@@ -39,17 +34,21 @@
             </div>
         </div>
     </nav>
+    
+    
 
     <!-- Admin Dashboard Content -->
-    <div class="container mt-5">
+    <div class="container mt-5" >
         <h1>Admin Dashboard</h1>
-        <p>Welcome, Admin. Here you can manage orders and add products to the website.</p>
+        <p>Welcome, Admin. Here you can manage orders.</p>
     </div>
 
     <!-- Inside the <body> tag, add a new section for viewing customer orders -->
-    <section class="container mt-5">
+        <section class="container mt-5" >
+          
         <h2>Customer Orders</h2>
-        <table class="table table-bordered">
+        
+        <table class="custom-table">
             <thead>
                 <tr>
                     <th>Order Number</th>
@@ -57,6 +56,8 @@
                     <th>Order Date</th>
                     <th>Quantity 330ml</th>
                     <th>Quantity 500ml</th>
+                    <th>Status</th>
+                    <th>Save Changes</th>
                 </tr>
             </thead>
             <tbody>
@@ -66,7 +67,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer bg-dark text-light py-3">
+    <footer class="footer bg-dark text-light py-3" style="margin-top: 20px;" >
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
