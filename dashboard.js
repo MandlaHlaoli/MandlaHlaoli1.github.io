@@ -22,6 +22,50 @@ firstN.style.cursor = 'not-allowed';
 lastN.style.background = "#f2f2f2";
 lastN.style.cursor = 'not-allowed';
 
+order_number = 0;
+
+var value = 0;
+
+//****************************** */
+
+const APP_ID = '86DB0E86-6924-65CB-FF1F-99E061C5E700'; // Backendless Application ID
+const REST_API_KEY = '12735845-2C7C-40E5-8980-10559654CB2E'; // Backendless REST API Key
+
+var value = 1;
+Backendless.initApp(APP_ID, REST_API_KEY);
+
+// The name of your Backendless table
+const tableName = 'Orders';
+
+// The name of the specific column you want to retrieve
+const columnName = 'order_number';
+
+var dataQuery = Backendless.DataQueryBuilder.create();
+dataQuery.setProperties(['order_number']); 
+
+Backendless.Data.of(tableName).find(dataQuery)
+    .then(function(results) {
+        // Handle the retrieved data in 'results'.
+        // Each result object will contain only the specified property.
+        for (var i = 0; i < results.length; i++) {
+            var propertyValue = propertyValue + results[i].order_number ;
+            //console.log(propertyValue);
+            value = parseInt(propertyValue);
+          
+        }
+        console.log("Value : " + value)
+    })
+    .catch(function(error) {
+        // Handle any errors.
+        console.error(error);
+    });
+
+
+
+
+
+//******************************* */
+
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -37,7 +81,8 @@ document.addEventListener('DOMContentLoaded', function () {
             quantity330ml: quantity330ml,
             username: userN,
             fullname: fullNames,
-            order_date: Date().toLocaleString(),
+            order_number:value,
+            order_date: Date().toLocaleString().split(' ').slice(1, 4).join(' '),
         };
 
     
