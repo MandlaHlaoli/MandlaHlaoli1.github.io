@@ -1,23 +1,22 @@
 
 
-    const APP_ID = '86DB0E86-6924-65CB-FF1F-99E061C5E700'; // Backendless Application ID
-    const REST_API_KEY = '12735845-2C7C-40E5-8980-10559654CB2E'; // Backendless REST API Key
-    // Initialize Backendless with your application ID and API key
+    const APP_ID = '86DB0E86-6924-65CB-FF1F-99E061C5E700'; 
+    const REST_API_KEY = '12735845-2C7C-40E5-8980-10559654CB2E'; 
+    
     Backendless.initApp(APP_ID,REST_API_KEY);
 
-    // Function to populate the table with data
-   // Function to populate the table with data
+   
 function populateTable() {
-    // Create a Backendless Data Query
+    
     const query = Backendless.DataQueryBuilder.create();
 
-    // Make a request to fetch data
+    
     Backendless.Data.of('Orders').find(query)
         .then(function (orders) {
             // Get the table body to append rows
             const tbody = document.querySelector('#ord_table tbody');
 
-            // Iterate through the retrieved data and populate the table
+            
             orders.forEach(function (order) {
                 const row = tbody.insertRow();
                 row.insertCell(0).textContent = order.order_number;
@@ -26,13 +25,15 @@ function populateTable() {
                 row.insertCell(3).textContent = order.quantity330ml;
                 row.insertCell(4).textContent = order.quantity500ml;
 
-                // Create the Status column with a dropdown
+             
                 const statusCell = row.insertCell(5);
                 const statusDropdown = document.createElement('select');
                 statusDropdown.innerHTML = `
+                    <option value="Recieved">Recieved</option>
                     <option value="Processing">Processing</option>
                     <option value="Shipped">Shipped</option>
                     <option value="Packaging">Packaging</option>
+                    <option value="Pending">Pending</option>
                 `;
                 statusDropdown.value = order.status; // Set the selected option based on the order's status
 
@@ -72,10 +73,6 @@ function updateOrderStatus(orderId, newStatus) {
             console.error('Error updating order status:', error);
         });
 }
-
-    
-
-   
     // Call the function to populate the table
     populateTable();
 
@@ -95,7 +92,7 @@ function updateOrderStatus(orderId, newStatus) {
                 window.location.href = "main.html"; 
                 console.log("User logged out");
                 clearViews(); 
-                // You can redirect the user to a logout page or perform any other necessary actions.
+              
               })
               .catch((error) => {
                 console.error("Error logging out:", error);
@@ -106,27 +103,12 @@ function updateOrderStatus(orderId, newStatus) {
         }
       });
       
-
-
-
       // Thingspeak keys
       const channelID = '1761585'; // ThingSpeak channel ID
       const apiKey = '147VXUAFDWWKEOV2'; // ThingSpeak API Key
       const apiUrl = `https://api.thingspeak.com/channels/${channelID}/feeds.json?api_key=${apiKey}&results=10`;
       // Build the URL for retrieving data from ThingSpeak. Adjust the number of results as needed.
-/*
-        
-: parseInt(feed.field1),
-        bottle_count500: parseInt(feed.field2),
-        elevation: feed.field3,
-        flow_rate: parseInt(feed.field4),
-        water_level:parseInt(feed.field5),
-        username: feed.field6,
-        fullname:feed.field7,
-        entry_id: parseInt(feed.entry_id),
-        status: sum += parseInt(feed.field1) ,     
-      }
-      */
+
 
 // Function to fetch data and populate the table
 async function fetchDataAndPopulateTable() {
@@ -157,5 +139,4 @@ async function fetchDataAndPopulateTable() {
     }
 }
 
-// Call the function to populate the table when the page loads
 fetchDataAndPopulateTable();

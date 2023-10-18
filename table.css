@@ -3,8 +3,8 @@
     border-collapse: collapse;
 }
 .table-section {
-    min-height: 300px; /* Set a minimum height for the section */
-    margin-bottom: 100px; /* Add a margin at the bottom to separate it from the footer */
+    min-height: 300px;
+    margin-bottom: 100px; 
 }
 .customer_orders{
     margin-top: 40px;
