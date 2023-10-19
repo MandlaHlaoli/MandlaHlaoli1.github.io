@@ -1,0 +1,15 @@
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    font-size: smaller;
+    font-weight: 100;
+    text-align: left;
+    text-decoration: none;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.nav_container {
+    background-color: blue;
+}

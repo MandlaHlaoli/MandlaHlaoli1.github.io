@@ -3,6 +3,10 @@
     text-align: center;
 }
 
+.bottomdiv{
+    padding-bottom: 50px;
+}
+
 /* Navigation Bar Styles */
 .navbar-main {
     background-color: #007BFF;
@@ -187,24 +191,24 @@ body {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: #333; /* Change this to your desired background color */
-    color: #fff; /* Change this to your desired text color */
-    padding: 20px 0; /* Adjust the padding as needed */
-    z-index: 1; /* Adjust the z-index as needed */
+    background-color: #333; 
+    color: #fff; 
+    padding: 20px 0; 
+    z-index: 1; 
 }
 
 .card:hover {
-    background-color: #f5f5f5; /* Change the background color on hover */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow on hover */
+    background-color: #f5f5f5; 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);  
 }
 
-/* Style for the card title on hover */
+
 .card:hover .card-title {
-    color: #007bff; /* Change the text color of the title on hover */
+    color: #007bff; 
     
 }
 
-/* Style for the card text on hover */
+
 .card:hover .card-text {
-    color: #007bff; /* Change the text color of the text on hover */
+    color: #007bff; 
 }
