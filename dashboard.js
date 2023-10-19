@@ -31,8 +31,8 @@ document.addEventListener('DOMContentLoaded', function () {
     orderForm.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        const minNumber = 10000; // Minimum 5-digit number
-        const maxNumber = 99999; // Maximum 5-digit number
+        const minNumber = 10000; 
+        const maxNumber = 99999; 
 
         var random5DigitNumber = Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
 
@@ -46,9 +46,10 @@ document.addEventListener('DOMContentLoaded', function () {
             fullname: fullNames,
             order_number: random5DigitNumber,
             status: 'Received',
-            order_date: new Date().toLocaleString().split(' ').slice(1, 4).join(' '),
+            order_date: new Date().toISOString().split('T')[0],
         };
 
+        
         Backendless.Data.of('Orders').save(orderData)
             .then(savedOrder => {
                 displaySuccessMessage();
