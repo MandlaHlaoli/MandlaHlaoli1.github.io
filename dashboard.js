@@ -24,8 +24,6 @@ const REST_API_KEY = '12735845-2C7C-40E5-8980-10559654CB2E';
 
 Backendless.initApp(APP_ID, REST_API_KEY);
 
-
-
 document.addEventListener('DOMContentLoaded', function () {
     const orderForm = document.getElementById('orderForm');
     orderForm.addEventListener('submit', function (e) {
@@ -54,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(savedOrder => {
                 displaySuccessMessage();
                 clearViews();
-                updateTable(); // Call the function to update the table
+                updateTable(); 
             })
             .catch(error => {
                 console.error('Error:', error);
@@ -95,7 +93,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 5000);
     }
 
-    // Function to update the order table
     function updateTable() {
         const query = Backendless.DataQueryBuilder.create();
         query.setWhereClause(`username = '${userN}'`);
@@ -118,7 +115,5 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.error('Error fetching data:', error);
             });
     }
-    
-    // Initialize the table when the page loads
     updateTable();
 });
