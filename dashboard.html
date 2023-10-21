@@ -4,23 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Water Bottle Dashboard</title>
+    <!-- Link to Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Link to your custom CSS -->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="custom.css">
     <link rel="stylesheet" href="table.css">
-    <script src="https://api.backendless.com/sdk/js/latest/backendless.js"></script>
-    <!-- Link to Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/gradient.css">
+    <!-- Link to Font Awesome icons CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+    <!-- Link to Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
-
-
 </head>
 <body>
-    <!-- Main Navigation bar -->
-    <nav class="navbar navbar-expand-lg navbar-main bg-primary">
+
+    <nav class="navbar navbar-expand-lg navbar-main bg-primary fixed-top">
         <div class="container">
-           
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -29,7 +29,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Home</a>
                     </li>
-                    
                     <li class="nav-item">
                         <a class="nav-link" href="#" id="logoutLink">Logout</a>
                     </li>
@@ -37,79 +36,90 @@
             </div>
         </div>
     </nav>
+    <!-- Header Section -->
+    <header class="bg-primary text-white py-5 text-center">
+        <div class="container">
+            <h1 class="display-4">Water Bottle Dashboard</h1>
+            <p class="lead">Order, track, and stay refreshed with our premium water bottles.</p>
+        </div>
+    </header>
+
+    <!-- Main Navigation bar -->
+   
 
     <!-- Dashboard Content -->
-    <div class="container mt-4">
+    <div class="container mt-5">
         <div class="row">
-
-<div class="col-md-6">
-    <h2>Order Water Bottles</h2>
-    <p>Hello, <span id="usernameDisplay"></span>!</p>
-    <p id="successMessage"></p>
-    <form id="orderForm" class="mt-4">
-        <div class="row">
+            <!-- Order Form -->
             <div class="col-md-6">
-                <div class="mb-3">
-                    <label for="firstName" class="form-label">First Name</label>
-                    <input type="text" class="form-control" id="firstName" name="firstName" required>
-                </div>
+                <h2>Order Water Bottles</h2>
+                <p>Hello, <span id="usernameDisplay"></span>!</p>
+                <p id="successMessage"></p>
+                <form id="orderForm" class="mt-4">
+                    <!-- Form inputs go here with Bootstrap classes -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="firstName" name="firstName" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="quantity500ml" class="form-label">500ml Bottles</label>
+                                <input type="number" class="form-control" id="quantity500ml" name="quantity500ml" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="quantity300ml" class="form-label">330ml Bottles</label>
+                                <input type="number" class="form-control" id="quantity300ml" name="quantity300ml" required>
+                            </div>
+                        </div>
+                    </div>
+                
+            
+                    <button id="btn_order_bottles" type="submit" class="btn btn-primary">Place Order</button>
+                </form>
             </div>
+
+            <!-- Table for Orders -->
             <div class="col-md-6">
-                <div class="mb-3">
-                    <label for="lastName" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="lastName" name="lastName" required>
-                </div>
+                <h2>Your Orders</h2>
+                <table class="table table-striped table-hover" id="tablee">
+                    <thead>
+                        <tr>
+                            <th>Order Number</th>
+                            <th>Order Date</th>
+                            <th>330ml Bottles</th>
+                            <th>500ml Bottles</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Orders will be dynamically added here using JavaScript -->
+                    </tbody>
+                </table>
             </div>
         </div>
-        
-    
-        <div class="row">
-            <div class="col-md-6">
-                <div class="mb-3">
-                    <label for="quantity500ml" class="form-label">500ml Bottles</label>
-                    <input type="number" class="form-control" id="quantity500ml" name="quantity500ml" required>
-                </div>
+
+        <!-- Bottles Section -->
+        <div class="row mt-5">
+            <div class="col-md-6 text-center">
+                <h3>Our Bottles</h3>
+                <p>Stay refreshed with our premium water bottles.</p>
             </div>
             <div class="col-md-6">
-                <div class="mb-3">
-                    <label for="quantity300ml" class="form-label">330ml Bottles</label>
-                    <input type="number" class="form-control" id="quantity300ml" name="quantity300ml" required>
-                </div>
-            </div>
-        </div>
-    
-
-        <button id="btn_order_bottles" type="submit" class="btn btn-primary">Place Order</button>
-    </form>
-</div>
-
-
-
-
-<!-- Table -->
-<div class="col-md-6">
-    <h2>Your Orders</h2>
-    
-    <table class="custom-table table table table-striped table-hover table-sm table-responsive" id="tablee">
-        <thead>
-            <tr>
-                <th>Order Number</th>
-                <th>Order Date</th>
-                <th>330ml Bottles</th>
-                <th>500ml Bottles</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody >
-            <!-- Orders will be dynamically added here using JavaScript -->
-        </tbody>
-    </table>
-</div>
-            <div class="col-md-6 bottomdiv">
-                <div class="text-center mb-4">
-                    <h3>Our Bottles</h3>
-                    <p>Stay refreshed with our premium water bottles.</p>
-                </div>
                 <div class="row">
                     <div class="col-md-6 mb-4">
                         <div class="card">
@@ -134,33 +144,40 @@
         </div>
     </div>
 
-    
-    
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <!-- Include Backendless JavaScript SDK -->
-    <script src="https://api.backendless.com/sdk/js/latest/backendless.min.js"></script>
-
-    <script src="dashboard.js"></script>
-    <script src="initialize_data.js"></script>
-
-
-    <!-- Footer -->
-    <footer class="footer bg-dark text-light py-3">
+    <!-- Footer Section -->
+    <footer class="bg-dark text-light py-4">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
                     <p>&copy; 2023 Water Bottle Dashboard</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 17 Willows Street, Bloemfontein, South Africa</p>
                 </div>
-                <div class="col-md-6 text-right">
-                    <a href="#" class="text-light mx-3"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="text-light mx-3"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="text-light mx-3"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-light mx-3"><i class="fab fa-linkedin"></i></a>
+                <div class="col-md-6 text-md-right">
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com" class="text-light mx-3"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.twitter.com" class="text-light mx-3"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com" class="text-light mx-3"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com" class="text-light mx-3"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:wittesmpho@gmail.com" class="text-light">wittesmpho@gmail.com</a></p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:+27730842142" class="text-light">+27 73 084 2142</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>Follow us on social media for updates and news</p>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- JavaScript scripts (Bootstrap and your custom scripts) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://api.backendless.com/sdk/js/latest/backendless.min.js"></script>
+    <script src="dashboard.js"></script>
+    <script src="initialize_data.js"></script>
 </body>
 </html>

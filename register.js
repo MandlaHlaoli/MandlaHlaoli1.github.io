@@ -47,6 +47,7 @@ document.getElementById('signup').addEventListener('click', function (e) {
         loginMessage.innerText ='Password do not match ';
         loginMessage.style.color = 'red';
         loginMessage.style.fontWeight = 'bold';
+        loginMessage.style.display = "block";
         return;
     }
 
@@ -65,14 +66,15 @@ document.getElementById('signup').addEventListener('click', function (e) {
             setTimeout(() => {
                 loginMessage.textContent = '';
             }, 3000); 
+            loginMessage.style.display = "block";
             loginMessage.style.color = 'green';
-            loginMessage.style.fontWeight = 'bold';
-            clearViews();
+          
             signupForm.style.display = "none";
             loginForm.style.display = "block";
+            clearViews();
         })
         .catch(function (error) {
-            
+            loginMessage.style.display = "block";
             loginMessage.innerText ='Registration failed: ' + error.message;
             loginMessage.style.color = 'red';
             loginMessage.style.fontWeight = 'bold';
@@ -100,6 +102,7 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
         })
         .catch(function (error) {
             // Handle login errors
+            loginMessage.style.display = "block";
             loginMessage.innerText ='Login failed: ' + error.message;
             loginMessage.style.color = 'red';
             loginMessage.style.fontWeight = 'bold';

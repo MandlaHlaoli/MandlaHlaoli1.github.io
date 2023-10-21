@@ -53,10 +53,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 displaySuccessMessage();
                 clearViews();
                 updateTable(); 
+                console.log(savedOrder + " Successfully saved!!")
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert('Failed to save data to Backendless.' + error);
+                alert('Failed to save data to Backendless. {}' + error);
             });
     });
 
