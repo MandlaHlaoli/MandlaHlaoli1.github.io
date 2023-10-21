@@ -1,0 +1,17 @@
+.bg-primary {
+    background: linear-gradient(to right, #3494E6, #EC6EAD);
+  }
+
+  /* Style the text inside the header */
+  .bg-primary h1, .bg-primary p {
+    color: #fff; /* White text color */
+  }
+
+  /* Style the button */
+  .bg-primary .btn-primary {
+    background-color: #EC6EAD; /* Matching button background color */
+    border-color: #EC6EAD; /* Matching button border color */
+    color: #fff; /* White button text color */
+  }
+
+  

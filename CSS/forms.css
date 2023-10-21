@@ -1,0 +1,32 @@
+
+        /* Custom CSS for the form */
+        .card {
+            border: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-title {
+            text-align: center;
+            color: #333; /* Custom text color */
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: #007BFF; /* Custom button background color */
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3; /* Custom button background color on hover */
+        }
+
+        .btn-link {
+            color: #007BFF; /* Custom link color */
+        }
+
+        .btn-link:hover {
+            text-decoration: underline;
+        }
