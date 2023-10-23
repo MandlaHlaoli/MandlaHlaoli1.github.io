@@ -41,20 +41,16 @@
         </div>
     </nav>
 
-
-
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
                         <div id="loginMessage" class="alert alert-success" style="display: none;">
-                            
                             <button id="closeSuccessMessage" class="close" data-dismiss="alert" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                             </button>
-                          </div>
-                          
+                        </div>
                         <h2 class="card-title" id="head">Sign In</h2>
                         <form id="loginForm">
                             <div class="mb-3">
@@ -62,11 +58,14 @@
                                 <input type="text" class="form-control" id="username" name="username" required>
                             </div>
                             <div class="mb-3">
-                                <label for="password" class="form-label">Password</label>
+                                <label for="password" class "form-label">Password</label>
                                 <input type="password" class="form-control" id="password" name="password" required>
                             </div>
                             <button type="submit" class="btn btn-primary btn-block">Log In</button>
                             <button type="button" class="btn btn-link" id="showSignup">Sign Up</button>
+                            <div class="text-center mt-4">
+                                <a href="#" id="showForgotPassword">Forgot Password?</a>
+                            </div>
                         </form>
                         <!-- Sign Up Form (Initially hidden) -->
                         <form id="signupForm" style="display: none;">
@@ -95,39 +94,38 @@
         </div>
     </div>
 
-    <footer class="foot bg-dark text-light py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <p>&copy; 2023 Flexible Ordering</p>
-                    <p><i class="fas fa-map-marker-alt"></i> 17 Willows, Bloemfontein, South Africa</p>
+    <!-- "Forgot Password" Modal (Initially hidden) -->
+    <div id="forgotPasswordModal" class="modal" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Forgot Password</h5>
+                    <button id="closeForgotPassword" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="col-md-6 text-md-right">
-                    <div class="social-icons">
-                        <a href="https://www.facebook.com" class="text-light mx-3"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.twitter.com" class="text-light mx-3"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.instagram.com" class="text-light mx-3"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com" class="text-light mx-3"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                    <div class="contact-info">
-                        <p><i class="fas fa-envelope"></i> <a href="mailto:wittesmpho@gmail.com" class="text-light">wittesmpho@gmail.com</a></p>
-                        <p><i class="fas fa-phone"></i> <a href="tel:+27730842142" class="text-light">+27 73 084 2142</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 text-center">
-                    <p>Follow us on social media for updates and news</p>
+                <div class="modal-body">
+                    <form id="forgotPasswordForm">
+                        <div class="mb-3">
+                            <label for="forgotEmail" class="form-label">Enter your email address to reset your password</label>
+                            <input type="email" class="form-control" id="forgottentEmail" name="forgotEmail" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Reset Password</button>
+                    </form>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
 
-    <!-- Script tags at the end of the body for better loading performance -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <script src="https://api.backendless.com/sdk/js/latest/backendless.js"></script>
-    <script src="register.js"></script>
-    <script src="initialize_data.js"></script>
+     <!-- Script tags at the end of the body for better loading performance -->
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+     <script src="https://api.backendless.com/sdk/js/latest/backendless.js"></script>
+     <script src="register.js"></script>
+     <script src="initialize_data.js"></script>
+    
+    <script>
+        
+    </script>
 </body>
 </html>

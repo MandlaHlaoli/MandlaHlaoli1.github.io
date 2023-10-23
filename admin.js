@@ -76,32 +76,36 @@ function updateOrderStatus(orderId, newStatus) {
     // Call the function to populate the table
     populateTable();
 
-    
 
     document.addEventListener("DOMContentLoaded", function() {
-        var logoutLink = document.getElementById("logoutLink");
-      
-        if (logoutLink) {
-          logoutLink.addEventListener("click", function(event) {
-            event.preventDefault();
-      
-            Backendless.UserService.logout()
-              .then(() => {
-                // User has been successfully logged out
-                alert("clicked");
-                window.location.href = "main.html"; 
-                console.log("User logged out");
-                clearViews(); 
-              
-              })
-              .catch((error) => {
-                console.error("Error logging out:", error);
-              });
-          });
-        } else {
-          console.error("Element with id 'logoutLink' not found.");
-        }
-      });
+  var logoutLink = document.getElementById("logoutLink");
+
+  if (logoutLink) {
+    logoutLink.addEventListener("click", function(event) {
+      event.preventDefault();
+
+      Backendless.UserService.logout()
+        .then(() => {
+          // User has been successfully logged out
+          // Set a session or token to indicate the user is logged out in your backend
+
+          // Add an additional history entry to prevent going back to the dashboard page
+          window.history.pushState({}, "", "main.html?loggedOut=true");
+
+          // Redirect to the main page
+          window.location.href = "main.html";
+          console.log("User logged out");
+          clearViews();
+        })
+        .catch((error) => {
+          console.error("Error logging out:", error);
+        });
+    });
+  } else {
+    console.error("Element with id 'logoutLink' not found.");
+  }
+});
+
       
       // Thingspeak keys
       const channelID = '1761585'; // ThingSpeak channel ID

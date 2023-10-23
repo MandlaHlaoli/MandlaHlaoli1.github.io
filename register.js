@@ -109,6 +109,45 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
         });
 });
 
+
+// JavaScript to show/hide the "Forgot Password" modal
+const showForgotPassword = document.getElementById("showForgotPassword");
+const closeForgotPassword = document.getElementById("closeForgotPassword");
+const forgotPasswordModal = document.getElementById("forgotPasswordModal");
+
+
+
+showForgotPassword.addEventListener("click", function (event) {
+    event.preventDefault();
+    forgotPasswordModal.style.display = "block";
+    
+});
+
+closeForgotPassword.addEventListener("click", function () {
+    forgotPasswordModal.style.display = "none";
+});
+
+
+
+// Get a reference to the form element
+const form = document.getElementById("forgotPasswordForm");
+
+// Add an event listener to the form submit button
+form.addEventListener("submit", function (event) {
+  // Prevent the default form submission
+  event.preventDefault();
+  const forgottentEmail = document.getElementById("forgottentEmail");
+
+        var forgottentEmailValue = forgottentEmail.value;
+  // Your custom logic here, if needed
+   forgotPassword(forgottentEmailValue);
+  form.submit();
+  
+});
+
+
+
+
 function clearViews(){
     document.getElementById('fullname').value = "";
     document.getElementById('email').value = "";
@@ -117,3 +156,22 @@ function clearViews(){
     document.getElementById('username').value = "";
     document.getElementById('password').value = "";
 }
+
+
+
+    function forgotPassword(email) {
+    
+        // Initiate the password reset
+        Backendless.UserService.restorePassword(email)
+            .then(function(response) {
+                // Password reset initiated successfully
+                
+                alert("Password reset instructions sent to your email.");
+            })
+            .catch(function(error) {
+                // Handle errors, such as the email not being found
+                alert("Password reset request failed. Please try again.");
+                console.error(error );
+            });
+    }
+
